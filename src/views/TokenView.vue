@@ -48,6 +48,9 @@ const set = async () => {
 
 const fetchData = async () => {
   await dataStore.getFields(formState)
+  if (!dataStore.error) {
+    await dataStore.fetchRows(formState)
+  }
 }
 
 const saveCredentials = () => {

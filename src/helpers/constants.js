@@ -10,5 +10,12 @@ export const defaultFieldOptions = {
   grid: 20,
   fontSize: 14,
   lineHeight: 16,
-  color: '#202020'
+  color: '#202020',
+  showLabel: true,
+  labelPosition: 'above', // 'above', 'left', 'below'
+  labelStyle: {
+    fontSize: 12,
+    color: '#666666',
+    fontWeight: 'bold'
+  }
 }

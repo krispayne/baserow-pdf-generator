@@ -1,6 +1,8 @@
+import VueCookies from 'vue-cookies'
+
 const BASE_URL = 'https://api.baserow.io/api/database/'
 
-const getCredentials = () => $cookies.get('credentials')
+const getCredentials = () => VueCookies.get('credentials')
 
 const getHeaders = (apiKey) => ({
   headers: {

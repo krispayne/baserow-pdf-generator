@@ -57,10 +57,22 @@ watch(
 
 onMounted(() => {
   nextTick(() => {
-    emitUpdateField({
-      width: element.value.width * 2, // assign 2x more space by-default
-      height: element.value.height
-    })
+    // Only set default dimensions if width/height are 'auto' (new field)
+    // Otherwise, preserve the saved dimensions from templates
+    const updates = {}
+    
+    if (props.options.width === 'auto') {
+      updates.width = element.value.width * 2 // assign 2x more space by-default
+    }
+    
+    if (props.options.height === 'auto') {
+      updates.height = element.value.height
+    }
+    
+    // Only update if we have changes to make
+    if (Object.keys(updates).length > 0) {
+      emitUpdateField(updates)
+    }
   })
 })
 </script>
